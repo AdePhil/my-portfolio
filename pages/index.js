@@ -6,14 +6,20 @@ import Box from "../components/Box";
 import image from "../assets/me.png";
 import polygon from "../assets/polygon.svg";
 import Contact from "../components/Contact";
+import dynamic from "next/dynamic";
+
 import Works from "../components/Works";
+// const Works = dynamic(() => import("../components/Works"), {
+//   ssr: false,
+// });
+
 import { useEffect, useRef, useState } from "react";
-import { TimelineMax, Power1, Power2, Power3, Power4 } from "gsap";
 
 const Home = () => {
   const boxCoverRef = useRef(null);
   const [isFixed, setIsFixed] = useState(true);
   useEffect(() => {
+    const { TimelineMax, Power1, Power2, Power3, Power4 } = require("gsap");
     const ScrollMagic = require("scrollmagic");
     const { ScrollMagicPluginGsap } = require("scrollmagic-plugin-gsap");
     ScrollMagicPluginGsap(ScrollMagic, TimelineMax);

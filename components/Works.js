@@ -1,7 +1,5 @@
 import { useEffect, useRef, useState } from "react";
-import Swiper from "swiper";
 import Title from "../components/Title";
-import { TimelineMax, Power1, Power2, Power3, Power4 } from "gsap";
 
 const projects = [
   {
@@ -98,6 +96,7 @@ const Works = () => {
   const ref = useRef(null);
 
   useEffect(() => {
+    const { TimelineMax, Power1, Power2, Power3, Power4 } = require("gsap");
     const ScrollMagic = require("scrollmagic");
     const { ScrollMagicPluginGsap } = require("scrollmagic-plugin-gsap");
     ScrollMagicPluginGsap(ScrollMagic, TimelineMax);
