@@ -34,7 +34,7 @@ const Contact = () => {
           I’m Always Intested in hearing about about new projects and
           oppotunities, so if you’d liketo chat please get in touch.
         </p>
-        <form onSubmit={handleSubmit} netlify name="contact">
+        <form onSubmit={handleSubmit} name="contact">
           <div className="input-group">
             <input
               type="text"
@@ -63,6 +63,7 @@ const Contact = () => {
               onChange={handleChange}
             />
           </div>
+          <input type="hidden" name="form-name" value="contact" />
           <div className="center">
             <button className="btn btn-blue" onClick={handleSubmit}>
               Let's Chat
