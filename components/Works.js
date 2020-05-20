@@ -2,6 +2,7 @@ import { useEffect, useRef, useState } from "react";
 import Swiper from "swiper";
 import Title from "../components/Title";
 import { TimelineMax, Power1, Power2, Power3, Power4 } from "gsap";
+import Link from "next/link";
 
 const projects = [
   {
@@ -11,6 +12,18 @@ const projects = [
     tech: "React/Scss",
     role: "Sole Developer",
     img: "/productly.png",
+    link: "https://productly.netlify.app/",
+    description:
+      "Lorem ipsum dolor sit amet consectetur adipisicing elit. Illum quisquam ipsam exercitationem fugiat fuga sequi quasi officiadoloremque placeat laudantium.",
+  },
+  {
+    id: 8,
+    projectName: "TAMS",
+    date: "22/02/2020",
+    tech: "Vue/Vuex/Scss",
+    role: "Frontend Lead Developer",
+    img: "/tams.png",
+    link: "https://app.tams.com.ng/",
     description:
       "Lorem ipsum dolor sit amet consectetur adipisicing elit. Illum quisquam ipsam exercitationem fugiat fuga sequi quasi officiadoloremque placeat laudantium.",
   },
@@ -21,6 +34,7 @@ const projects = [
     tech: "React/Scss",
     role: "Sole Developer",
     img: "/prospa.png",
+    link: "https://prospa.netlify.app/",
     description:
       "Lorem ipsum dolor sit amet consectetur adipisicing elit. Illum quisquam ipsam exercitationem fugiat fuga sequi quasi officiadoloremque placeat laudantium.",
   },
@@ -31,6 +45,7 @@ const projects = [
     tech: "Nuxt/Scss",
     role: "Sole Developer",
     img: "/neya.png",
+    link: "https://neya.tams.com.ng/",
     description:
       "Lorem ipsum dolor sit amet consectetur adipisicing elit. Illum quisquam ipsam exercitationem fugiat fuga sequi quasi officiadoloremque placeat laudantium.",
   },
@@ -41,6 +56,7 @@ const projects = [
     tech: "Nuxt/Scss",
     role: "Sole Developer",
     img: "/securetech.png",
+    link: "https://www.securetech.com.ng/ste/",
     description:
       "Lorem ipsum dolor sit amet consectetur adipisicing elit. Illum quisquam ipsam exercitationem fugiat fuga sequi quasi officiadoloremque placeat laudantium.",
   },
@@ -51,16 +67,29 @@ const projects = [
     tech: "React/Scss",
     role: "Sole Developer",
     img: "/gify.png",
+    link: "https://gify.netlify.app/",
     description:
       "Lorem ipsum dolor sit amet consectetur adipisicing elit. Illum quisquam ipsam exercitationem fugiat fuga sequi quasi officiadoloremque placeat laudantium.",
   },
   {
     id: 6,
+    projectName: "Transmonitor Dashboard UI",
+    date: "22/02/2020",
+    tech: "React/Scss",
+    role: "Sole Developer",
+    img: "/transmonitor.png",
+    link: "https://transmonitorx.netlify.app/",
+    description:
+      "Lorem ipsum dolor sit amet consectetur adipisicing elit. Illum quisquam ipsam exercitationem fugiat fuga sequi quasi officiadoloremque placeat laudantium.",
+  },
+  {
+    id: 7,
     projectName: "Agency",
     date: "22/02/2020",
     tech: "React/Scss",
     role: "Sole Developer",
     img: "/agency.png",
+    link: "https://creativeagency.netlify.com/",
     description:
       "Lorem ipsum dolor sit amet consectetur adipisicing elit. Illum quisquam ipsam exercitationem fugiat fuga sequi quasi officiadoloremque placeat laudantium.",
   },
@@ -116,13 +145,26 @@ const Works = () => {
         <Title section={2} title="Some Things I have Built" className="title" />
       </div>
       <div className="swiper-wrapper" id="swiper-wrapper" ref={ref}>
-        <div className="swiper-group" id="swiper-g">
+        <div
+          className="swiper-group"
+          id="swiper-g"
+          style={{ width: `${projects.length * 100}%` }}
+        >
           {projects.map(
-            ({ id, img, description, projectName, date, tech, role }) => {
+            ({ id, img, description, projectName, date, tech, role, link }) => {
               return (
-                <div className="swiper-slid s1" key={id}>
+                <div
+                  className="swiper-slid s1"
+                  key={id}
+                  style={{ width: `calc(100% / ${projects.length})` }}
+                >
                   <div className="project">
-                    <img src={img} alt={projectName} />
+                    <Link href={link}>
+                      <a>
+                        <img src={img} alt={projectName} />
+                      </a>
+                    </Link>
+
                     <div className="project-details-group">
                       <h2>Project Name</h2>
                       <h2>Date</h2>
@@ -184,7 +226,7 @@ const Works = () => {
           .swiper-slid {
             height: 700px !important;
             height: 100%;
-            width: calc(100% / 6);
+
             float: left;
             position: relative;
             display: flex;
@@ -208,7 +250,6 @@ const Works = () => {
             margin-bottom: 0;
           }
           .swiper-group {
-            width: 600%;
             height: 100%;
           }
         `}

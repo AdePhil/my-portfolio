@@ -1,6 +1,6 @@
 const Header = () => {
   return (
-    <div className="container relative">
+    <div className="container relative" style={{ zIndex: 3 }}>
       <header className="header">
         <h2 className="logo">AHM...</h2>
         <nav className="nav">
