@@ -7,11 +7,12 @@ import image from "../assets/me.png";
 import polygon from "../assets/polygon.svg";
 import Contact from "../components/Contact";
 import Works from "../components/Works";
-import { useEffect, useRef } from "react";
+import { useEffect, useRef, useState } from "react";
 import { TimelineMax, Power1, Power2, Power3, Power4 } from "gsap";
 
 const Home = () => {
   const boxCoverRef = useRef(null);
+  const [isFixed, setIsFixed] = useState(true);
   useEffect(() => {
     const ScrollMagic = require("scrollmagic");
     const { ScrollMagicPluginGsap } = require("scrollmagic-plugin-gsap");
@@ -21,11 +22,18 @@ const Home = () => {
 
     const tl = new TimelineMax();
 
+    setIsFixed(true);
     tl.to("#intro-cover", 0.5, { x: 0, y: "-150%", ease: Power1.easeIn });
     tl.to("#box1", 0.5, { x: 0, y: "-150%", ease: Power1.easeIn }, "-=0.4");
     tl.to("#box2", 0.2, { x: 0, y: "-150%", ease: Power1.easeIn }, "-=0.2");
     tl.to("#box3", 0.2, { x: 0, y: "-150%", ease: Power1.easeIn }, "-=0.2");
-    tl.set("#about-wrapper", { css: { position: "absolute" } });
+    // tl.to("#box1", 1.5, { x: 0, y: "-170%", ease: Power1.easeIn });
+
+    tl.eventCallback("onComplete", function () {
+      setTimeout(() => {
+        setIsFixed(false);
+      }, 500);
+    });
 
     const controller = new ScrollMagic.Controller();
     new ScrollMagic.Scene({
@@ -53,7 +61,10 @@ const Home = () => {
         <Box bg="#221149" id="box1" className="box" />
         <Box bg="#1C0E3C" id="box2" className="box" />
         <Box bg="#190D35" id="box3" className="box" />
-        <div className="about-wrapper">
+        <div
+          className="about-wrapper"
+          style={{ position: isFixed ? "fixed" : "absolute" }}
+        >
           <About />
         </div>
       </section>
