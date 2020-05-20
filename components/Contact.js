@@ -21,7 +21,7 @@ const Contact = () => {
     fetch("/", {
       method: "POST",
       headers: { "Content-Type": "application/x-www-form-urlencoded" },
-      body: encode({ "form-name": "contact", ...form }),
+      body: encode({ "form-name": "contact-form", ...form }),
     })
       .then(() => alert("Success!"))
       .catch((error) => alert(error));
@@ -37,14 +37,15 @@ const Contact = () => {
           oppotunities, so if you’d liketo chat please get in touch.
         </p>
         <form
-          name="contact"
+          name="contact-form"
           method="POST"
           netlify-honeypot="bot-field"
           netlify="true"
           data-netlify="true"
           ref={formRef}
+          onSubmit={handleSubmit}
         >
-          <input type="hidden" name="form-name" value="contact" />
+          <input type="hidden" name="form-name" value="contact-form" />
           <input type="hidden" name="bot-field" />
 
           <div className="input-group">
@@ -76,7 +77,9 @@ const Contact = () => {
             />
           </div>
           <div className="center">
-            <button className="btn btn-blue">Let's Chat</button>
+            <button className="btn btn-blue" onSubmit={handleSubmit}>
+              Let's Chat
+            </button>
           </div>
         </form>
       </section>
