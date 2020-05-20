@@ -16,6 +16,7 @@ const Contact = () => {
   };
 
   const handleSubmit = (e) => {
+    console.log(form);
     e.preventDefault();
     fetch("/", {
       method: "POST",
@@ -40,6 +41,7 @@ const Contact = () => {
               required
               placeholder="Type Your Name"
               className="input"
+              name="name"
               onChange={handleChange}
             />
             <input
@@ -47,6 +49,7 @@ const Contact = () => {
               required
               placeholder="Type Your Email"
               className="input"
+              name="email"
               onChange={handleChange}
             />
           </div>
@@ -56,6 +59,7 @@ const Contact = () => {
               required
               placeholder="Type Your Message"
               className="input full"
+              name="message"
               onChange={handleChange}
             />
           </div>
