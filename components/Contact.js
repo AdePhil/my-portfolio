@@ -18,7 +18,6 @@ const Contact = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    const form = formRef.current;
     fetch("/", {
       method: "POST",
       headers: { "Content-Type": "application/x-www-form-urlencoded" },
@@ -42,9 +41,10 @@ const Contact = () => {
           method="POST"
           netlify-honeypot="bot-field"
           netlify="true"
-          onSubmit={handleSubmit}
           ref={formRef}
         >
+          <input type="hidden" name="form-name" value="contact" />
+
           <div className="input-group">
             <input
               type="text"
@@ -73,11 +73,8 @@ const Contact = () => {
               onChange={handleChange}
             />
           </div>
-          <input type="hidden" name="form-name" value="contact" />
           <div className="center">
-            <button className="btn btn-blue" onClick={handleSubmit}>
-              Let's Chat
-            </button>
+            <button className="btn btn-blue">Let's Chat</button>
           </div>
         </form>
       </section>
