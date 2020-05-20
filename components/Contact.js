@@ -1,6 +1,24 @@
 import Title from "../components/Title";
+import { useState } from "react";
 
 const Contact = () => {
+  const [form, setForm] = useState({ name: "", email: "", message: "" });
+
+  const handleChange = (e) => {
+    const [name, value] = e.target;
+    setForm((form) => ({ ...form, [name]: value }));
+  };
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    fetch("/", {
+      method: "POST",
+      headers: { "Content-Type": "application/x-www-form-urlencoded" },
+      body: encode({ "form-name": "contact", ...this.form }),
+    })
+      .then(() => alert("Success!"))
+      .catch((error) => alert(error));
+  };
   return (
     <div className="container relative">
       <section className="contact" id="contact">
@@ -9,19 +27,21 @@ const Contact = () => {
           I’m Always Intested in hearing about about new projects and
           oppotunities, so if you’d liketo chat please get in touch.
         </p>
-        <form>
+        <form onSubmit={handleSubmit}>
           <div className="input-group">
             <input
               type="text"
               required
               placeholder="Type Your Name"
               className="input"
+              onChange={handleChange}
             />
             <input
               type="email"
               required
               placeholder="Type Your Email"
               className="input"
+              onChange={handleChange}
             />
           </div>
           <div className="input-group ">
@@ -30,10 +50,13 @@ const Contact = () => {
               required
               placeholder="Type Your Message"
               className="input full"
+              onChange={handleChange}
             />
           </div>
           <div className="center">
-            <button className="btn btn-blue">Let's Chat</button>
+            <button className="btn btn-blue" onClick={handleSubmit}>
+              Let's Chat
+            </button>
           </div>
         </form>
       </section>
