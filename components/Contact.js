@@ -1,5 +1,5 @@
 import Title from "../components/Title";
-import { useState } from "react";
+import { useState, useRef } from "react";
 
 const encode = (data) => {
   return Object.keys(data)
@@ -9,6 +9,7 @@ const encode = (data) => {
 
 const Contact = () => {
   const [form, setForm] = useState({ name: "", email: "", message: "" });
+  const formRef = useRef(null);
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -17,6 +18,7 @@ const Contact = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
+    const form = formRef.current;
     fetch("/", {
       method: "POST",
       headers: { "Content-Type": "application/x-www-form-urlencoded" },
@@ -39,8 +41,9 @@ const Contact = () => {
           name="contact"
           method="POST"
           netlify-honeypot="bot-field"
-          data-netlify="true"
+          netlify="true"
           onSubmit={handleSubmit}
+          ref={formRef}
         >
           <div className="input-group">
             <input

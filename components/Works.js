@@ -158,7 +158,7 @@ const Works = () => {
                   style={{ width: `calc(100% / ${projects.length})` }}
                 >
                   <div className="project">
-                    <a href={{ link }}>
+                    <a href={link}>
                       <img src={img} alt={projectName} />
                     </a>
 

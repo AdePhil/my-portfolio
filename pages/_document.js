@@ -22,16 +22,6 @@ export default class MyDocument extends Document {
           ></link> */}
         </Head>
         <body>
-          <form
-            name="contact"
-            data-netlify="true"
-            netlify-honeypot="bot-field"
-            hidden
-          >
-            <input type="text" name="name" />
-            <input type="email" name="email" />
-            <input type="text" name="message" />
-          </form>
           <Main />
           <NextScript />
         </body>
