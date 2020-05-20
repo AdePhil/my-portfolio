@@ -1,11 +1,17 @@
 import Title from "../components/Title";
 import { useState } from "react";
 
+const encode = (data) => {
+  return Object.keys(data)
+    .map((key) => encodeURIComponent(key) + "=" + encodeURIComponent(data[key]))
+    .join("&");
+};
+
 const Contact = () => {
   const [form, setForm] = useState({ name: "", email: "", message: "" });
 
   const handleChange = (e) => {
-    const [name, value] = e.target;
+    const { name, value } = e.target;
     setForm((form) => ({ ...form, [name]: value }));
   };
 
@@ -14,7 +20,7 @@ const Contact = () => {
     fetch("/", {
       method: "POST",
       headers: { "Content-Type": "application/x-www-form-urlencoded" },
-      body: encode({ "form-name": "contact", ...this.form }),
+      body: encode({ "form-name": "contact", ...form }),
     })
       .then(() => alert("Success!"))
       .catch((error) => alert(error));
@@ -27,7 +33,7 @@ const Contact = () => {
           I’m Always Intested in hearing about about new projects and
           oppotunities, so if you’d liketo chat please get in touch.
         </p>
-        <form onSubmit={handleSubmit}>
+        <form onSubmit={handleSubmit} netlify>
           <div className="input-group">
             <input
               type="text"

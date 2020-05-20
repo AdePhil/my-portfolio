@@ -2,7 +2,6 @@ import { useEffect, useRef, useState } from "react";
 import Swiper from "swiper";
 import Title from "../components/Title";
 import { TimelineMax, Power1, Power2, Power3, Power4 } from "gsap";
-import Link from "next/link";
 
 const projects = [
   {
@@ -159,11 +158,9 @@ const Works = () => {
                   style={{ width: `calc(100% / ${projects.length})` }}
                 >
                   <div className="project">
-                    <Link href={link}>
-                      <a>
-                        <img src={img} alt={projectName} />
-                      </a>
-                    </Link>
+                    <a href={{ link }}>
+                      <img src={img} alt={projectName} />
+                    </a>
 
                     <div className="project-details-group">
                       <h2>Project Name</h2>
