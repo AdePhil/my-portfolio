@@ -16,7 +16,6 @@ const Contact = () => {
   };
 
   const handleSubmit = (e) => {
-    console.log(form);
     e.preventDefault();
     fetch("/", {
       method: "POST",
@@ -25,6 +24,8 @@ const Contact = () => {
     })
       .then(() => alert("Success!"))
       .catch((error) => alert(error));
+
+    e.preventDefault();
   };
   return (
     <div className="container relative">
