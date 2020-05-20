@@ -34,7 +34,13 @@ const Contact = () => {
           I’m Always Intested in hearing about about new projects and
           oppotunities, so if you’d liketo chat please get in touch.
         </p>
-        <form onSubmit={handleSubmit} name="contact">
+        <form
+          name="contact"
+          method="POST"
+          netlify-honeypot="bot-field"
+          data-netlify="true"
+          onSubmit={handleSubmit}
+        >
           <div className="input-group">
             <input
               type="text"
