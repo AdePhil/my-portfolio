@@ -8,7 +8,7 @@ const projects = [
     date: "22/02/2020",
     tech: "React/Scss",
     role: "Sole Developer",
-    img: "/productly.png",
+    img: "/productly.jpg",
     link: "https://productly.netlify.app/",
     description:
       "Lorem ipsum dolor sit amet consectetur adipisicing elit. Illum quisquam ipsam exercitationem fugiat fuga sequi quasi officiadoloremque placeat laudantium.",
@@ -19,7 +19,7 @@ const projects = [
     date: "22/02/2020",
     tech: "Vue/Vuex/Scss",
     role: "Frontend Lead Developer",
-    img: "/tams.png",
+    img: "/tams.jpg",
     link: "https://app.tams.com.ng/",
     description:
       "Lorem ipsum dolor sit amet consectetur adipisicing elit. Illum quisquam ipsam exercitationem fugiat fuga sequi quasi officiadoloremque placeat laudantium.",
@@ -30,7 +30,7 @@ const projects = [
     date: "22/02/2020",
     tech: "React/Scss",
     role: "Sole Developer",
-    img: "/prospa.png",
+    img: "/prospa.jpg",
     link: "https://prospa.netlify.app/",
     description:
       "Lorem ipsum dolor sit amet consectetur adipisicing elit. Illum quisquam ipsam exercitationem fugiat fuga sequi quasi officiadoloremque placeat laudantium.",
@@ -41,7 +41,7 @@ const projects = [
     date: "22/02/2020",
     tech: "Nuxt/Scss",
     role: "Sole Developer",
-    img: "/neya.png",
+    img: "/neya.jpg",
     link: "https://neya.tams.com.ng/",
     description:
       "Lorem ipsum dolor sit amet consectetur adipisicing elit. Illum quisquam ipsam exercitationem fugiat fuga sequi quasi officiadoloremque placeat laudantium.",
@@ -52,7 +52,7 @@ const projects = [
     date: "22/02/2020",
     tech: "Nuxt/Scss",
     role: "Sole Developer",
-    img: "/securetech.png",
+    img: "/securetech.jpg",
     link: "https://www.securetech.com.ng/ste/",
     description:
       "Lorem ipsum dolor sit amet consectetur adipisicing elit. Illum quisquam ipsam exercitationem fugiat fuga sequi quasi officiadoloremque placeat laudantium.",
@@ -63,7 +63,7 @@ const projects = [
     date: "22/02/2020",
     tech: "React/Scss",
     role: "Sole Developer",
-    img: "/gify.png",
+    img: "/gify.jpg",
     link: "https://gify.netlify.app/",
     description:
       "Lorem ipsum dolor sit amet consectetur adipisicing elit. Illum quisquam ipsam exercitationem fugiat fuga sequi quasi officiadoloremque placeat laudantium.",
@@ -74,7 +74,7 @@ const projects = [
     date: "22/02/2020",
     tech: "React/Scss",
     role: "Sole Developer",
-    img: "/transmonitor.png",
+    img: "/transmonitor.jpg",
     link: "https://transmonitorx.netlify.app/",
     description:
       "Lorem ipsum dolor sit amet consectetur adipisicing elit. Illum quisquam ipsam exercitationem fugiat fuga sequi quasi officiadoloremque placeat laudantium.",
@@ -85,7 +85,7 @@ const projects = [
     date: "22/02/2020",
     tech: "React/Scss",
     role: "Sole Developer",
-    img: "/agency.png",
+    img: "/agency.jpg",
     link: "https://creativeagency.netlify.com/",
     description:
       "Lorem ipsum dolor sit amet consectetur adipisicing elit. Illum quisquam ipsam exercitationem fugiat fuga sequi quasi officiadoloremque placeat laudantium.",

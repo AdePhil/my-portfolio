@@ -1,5 +1,10 @@
 import Title from "../components/Title";
-import { useState, useRef } from "react";
+import { useState, useRef, useEffect } from "react";
+import Spinner from "../assets/svgs/spinner.svg";
+import CheckMark from "../assets/svgs/checkmark.svg";
+
+export const EMAIL_REGEX = /(?:[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*|"(?:[\x01-\x08\x0b\x0c\x0e-\x1f\x21\x23-\x5b\x5d-\x7f]|\\[\x01-\x09\x0b\x0c\x0e-\x7f])*")@(?:(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?|\[(?:(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.){3}(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?|[a-z0-9-]*[a-z0-9]:(?:[\x01-\x08\x0b\x0c\x0e-\x1f\x21-\x5a\x53-\x7f]|\\[\x01-\x09\x0b\x0c\x0e-\x7f])+)\])/;
+export const PASSWORD_REGEX = /(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{8,}/;
 
 const encode = (data) => {
   return Object.keys(data)
@@ -9,25 +14,73 @@ const encode = (data) => {
 
 const Contact = () => {
   const [form, setForm] = useState({ name: "", email: "", message: "" });
+  const [errors, setErrors] = useState({});
+  const [loading, setLoading] = useState(false);
+  const [status, setStatus] = useState("");
   const formRef = useRef(null);
 
   const handleChange = (e) => {
     const { name, value } = e.target;
     setForm((form) => ({ ...form, [name]: value }));
+    if (value) {
+      const errorEntries = Object.entries(errors).filter(
+        ([errorName]) => errorName !== name
+      );
+      setErrors(Object.fromEntries(errorEntries));
+    }
   };
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    fetch("/", {
-      method: "POST",
-      headers: { "Content-Type": "application/x-www-form-urlencoded" },
-      body: encode({ "form-name": "contact-form", ...form }),
-    })
-      .then(() => alert("Success!"))
-      .catch((error) => alert(error));
 
-    e.preventDefault();
+    const errs = isFormValid();
+    setErrors(errs);
+    if (Object.values(errs).some((err) => err !== "")) {
+      return;
+    }
+
+    const formDom = e.target;
+    setLoading(true);
+    fetch(formDom.action, {
+      method: formDom.method,
+      headers: {
+        "Content-Type": "application/x-www-form-urlencoded",
+        Accept: "application/json",
+      },
+      body: encode({ ...form }),
+    })
+      .then(() => {
+        setStatus("success");
+        setForm({ name: "", email: "", message: "" });
+      })
+      .catch((error) => setStatus("error"))
+      .finally(() => setLoading(false));
   };
+
+  const isFormValid = () => {
+    const errs = {};
+    if (!form.name) {
+      errs.name = "Please enter a name";
+    }
+
+    if (!form.email || !EMAIL_REGEX.test(form.email)) {
+      errs.email = "Please enter a valid email";
+    }
+
+    if (!form.message) {
+      errs.message = "Please enter a valid message";
+    }
+
+    return errs;
+  };
+
+  useEffect(() => {
+    if (status === "success") {
+      setTimeout(() => {
+        setStatus("");
+      }, 1500);
+    }
+  }, [status]);
   return (
     <div className="container relative">
       <section className="contact" id="contact">
@@ -37,53 +90,71 @@ const Contact = () => {
           oppotunities, so if you’d liketo chat please get in touch.
         </p>
         <form
-          name="contact-form"
+          action="https://formspree.io/xoqkjydo"
           method="POST"
-          netlify-honeypot="bot-field"
-          netlify="true"
-          data-netlify="true"
-          ref={formRef}
           onSubmit={handleSubmit}
         >
-          <input type="hidden" name="form-name" value="contact-form" />
-          <input type="hidden" name="bot-field" />
-
           <div className="input-group">
-            <input
-              type="text"
-              required
-              placeholder="Type Your Name"
-              className="input"
-              name="name"
-              onChange={handleChange}
-            />
-            <input
-              type="email"
-              required
-              placeholder="Type Your Email"
-              className="input"
-              name="email"
-              onChange={handleChange}
-            />
+            <div>
+              <input
+                type="text"
+                placeholder="Type Your Name"
+                className="input"
+                name="name"
+                onChange={handleChange}
+              />
+              {errors.name && <div className="error">{errors.name}</div>}
+            </div>
+            <div>
+              <input
+                type="text"
+                placeholder="Type Your Email"
+                className="input"
+                name="email"
+                onChange={handleChange}
+              />
+              {errors.email && <div className="error">{errors.email}</div>}
+            </div>
           </div>
           <div className="input-group ">
-            <input
-              type="text"
-              required
-              placeholder="Type Your Message"
-              className="input full"
-              name="message"
-              onChange={handleChange}
-            />
+            <div className="full">
+              <input
+                type="text"
+                placeholder="Type Your Message"
+                className="input "
+                name="message"
+                onChange={handleChange}
+              />
+              {errors.message && <div className="error">{errors.message}</div>}
+            </div>
           </div>
           <div className="center">
-            <button className="btn btn-blue" onSubmit={handleSubmit}>
-              Let's Chat
+            <button className="btn btn-blue btn-submit" onSubmit={handleSubmit}>
+              {loading && (
+                <img src={Spinner} alt="spinner" className="spinner" />
+              )}
+              {status === "success" && (
+                <img src={CheckMark} alt="check" className="spinner" />
+              )}
+              {status === "success" ? "Message Sent" : "Let's Chat"}
             </button>
           </div>
         </form>
       </section>
       <style jsx>{`
+        .error {
+          font-size: 12px;
+          color: orange;
+          margin-top: 5px;
+        }
+        .spinner {
+          width: 18px;
+          margin-right: 10px;
+        }
+        .btn-submit {
+          display: flex;
+          align-items: center;
+        }
         .contact {
           margin-top: 0px;
           padding: 40px 0 100px;
@@ -101,6 +172,12 @@ const Contact = () => {
           margin-bottom: 50px;
         }
 
+        @media (max-width: 900px) {
+          .input-group {
+            grid-template-columns: 1fr;
+          }
+        }
+
         .input {
           border: none;
           border-bottom: 1px solid var(--off-white);
@@ -109,6 +186,7 @@ const Contact = () => {
           font-size: 1.6rem;
           outline: none;
           color: #fff;
+          width: 100%;
         }
         .input:focus {
           border-bottom: 2px solid var(--blue);
