@@ -86,8 +86,8 @@ const Contact = () => {
       <section className="contact" id="contact">
         <Title section={3} title="Say Hi" />
         <p className="sub-title">
-          I’m Always Intested in hearing about about new projects and
-          oppotunities, so if you’d liketo chat please get in touch.
+          I’m always interested in hearing about about new projects and
+          opportunities, so if you’d like to chat please get in touch.
         </p>
         <form
           action="https://formspree.io/xoqkjydo"

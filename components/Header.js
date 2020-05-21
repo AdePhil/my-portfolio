@@ -2,7 +2,12 @@ const Header = () => {
   return (
     <div className="container relative" style={{ zIndex: 3 }}>
       <header className="header">
-        <h2 className="logo">AHM...</h2>
+        <h2 className="logo">
+          <span>AHM</span>
+          <span className="dot1">.</span>
+          <span className="dot2">.</span>
+          <span className="dot3">.</span>
+        </h2>
         <nav className="nav">
           <a href="#" className="nav-item">
             Home
@@ -18,6 +23,9 @@ const Header = () => {
           </a>
         </nav>
         <style jsx>{`
+          .dot {
+            display: inline-block;
+          }
           .header {
             display: flex;
             padding: 3rem 0;

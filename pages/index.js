@@ -7,17 +7,13 @@ import image from "../public/me.png";
 import polygon from "../assets/polygon.svg";
 import Contact from "../components/Contact";
 import dynamic from "next/dynamic";
-
 import Works from "../components/Works";
-// const Works = dynamic(() => import("../components/Works"), {
-//   ssr: false,
-// });
 
 import { useEffect, useRef, useState } from "react";
 
 const Home = () => {
   const boxCoverRef = useRef(null);
-  const [isFixed, setIsFixed] = useState(true);
+  const [isFixed, setIsFixed] = useState(false);
   useEffect(() => {
     const { TimelineMax, Power1, Power2, Power3, Power4 } = require("gsap");
     const ScrollMagic = require("scrollmagic");
@@ -28,18 +24,17 @@ const Home = () => {
 
     const tl = new TimelineMax();
 
-    setIsFixed(true);
+    // setIsFixed(true);
     tl.to("#intro-cover", 0.5, { x: 0, y: "-150%", ease: Power1.easeIn });
     tl.to("#box1", 0.5, { x: 0, y: "-150%", ease: Power1.easeIn }, "-=0.4");
     tl.to("#box2", 0.2, { x: 0, y: "-150%", ease: Power1.easeIn }, "-=0.2");
     tl.to("#box3", 0.2, { x: 0, y: "-150%", ease: Power1.easeIn }, "-=0.2");
-    // tl.to("#box1", 1.5, { x: 0, y: "-170%", ease: Power1.easeIn });
 
-    tl.eventCallback("onComplete", function () {
-      setTimeout(() => {
-        setIsFixed(false);
-      }, 500);
-    });
+    // tl.eventCallback("onComplete", function () {
+    //   setTimeout(() => {
+    //     setIsFixed(false);
+    //   }, 500);
+    // });
 
     const controller = new ScrollMagic.Controller();
     new ScrollMagic.Scene({
@@ -51,12 +46,109 @@ const Home = () => {
       .setTween(tl)
       .addTo(controller);
   }, []);
+
+  let homeRef = useRef(null);
+  let aboutRef = useRef(null);
+  useEffect(() => {
+    const {
+      TimelineMax,
+      TweenMax,
+      Power1,
+      Power2,
+      Power3,
+      Power4,
+      Sine,
+    } = require("gsap");
+    TweenMax.to(homeRef, 0, {
+      css: {
+        visibility: "visible",
+        height: "100vh",
+        overflow: "hidden",
+      },
+    });
+    TweenMax.to(aboutRef, 0, {
+      css: { visibility: "hidden" },
+    });
+
+    const tl = new TimelineMax();
+
+    tl.from(
+      ".my-img",
+      0.3,
+      {
+        opacity: 0,
+        ease: Power3.easeIn,
+      },
+      1
+    ).from(".intro-text1", 0.5, { x: -20, opacity: 0 }, "intro");
+
+    tl.staggerFrom(
+      [".intro-text2", ".intro-text3"],
+      1,
+      {
+        y: 150,
+        opacity: 0,
+        ease: Power3.easeInOut,
+        delay: 0.6,
+      },
+      0.1,
+      "intro-=0.3"
+    );
+
+    tl.from(".button-group", 0.5, { opacity: 0 }, "buttons")
+      .from(
+        ".socials",
+        0.5,
+        {
+          opacity: 0,
+          delay: 0.3,
+        },
+        "buttons-=0.1"
+      )
+      .from(
+        ".header",
+        0.5,
+        {
+          opacity: 0,
+          delay: 0.3,
+        },
+        "buttons-=0.1"
+      );
+
+    tl.staggerFrom(
+      ["#box1", "#box2", "#box3"],
+      1,
+      {
+        x: "-100%",
+        opacity: 0,
+        ease: Power3.easeInOut,
+        delay: 0.6,
+      },
+      0.5,
+      "intro-=1"
+    );
+
+    tl.staggerFrom([".dot1", ".dot2", ".dot3"], 1, {
+      x: "100",
+      // yoyo: true,
+      ease: Power3.easeInOut,
+    });
+
+    tl.eventCallback("onComplete", function () {
+      TweenMax.to(homeRef, 0, {
+        css: { height: "100%", overflow: "scroll" },
+      });
+      TweenMax.to(aboutRef, 0, {
+        css: { visibility: "visible" },
+      });
+    });
+  }, []);
   return (
-    <div id="index">
+    <div id="index" ref={(el) => (homeRef = el)}>
       <div className="image-container">
         <img src={image} alt="Me" className="my-img" />
-        <img src={polygon} alt="polygon" className="polygon top" />
-        <img src={polygon} alt="polygon" className="polygon bottom" />
+        {/* <img src={polygon} alt="polygon" className="polygon top" />
+        <img src={polygon} alt="polygon" className="polygon bottom" /> */}
       </div>
 
       <Header />
@@ -67,14 +159,10 @@ const Home = () => {
         <Box bg="#221149" id="box1" className="box" />
         <Box bg="#1C0E3C" id="box2" className="box" />
         <Box bg="#190D35" id="box3" className="box" />
-        <div
-          className="about-wrapper"
-          style={{ position: isFixed ? "fixed" : "absolute" }}
-        >
+        <div className="about-wrapper" ref={(el) => (aboutRef = el)}>
           <About />
         </div>
       </section>
-      {/* <Box bg="#0F0920" /> */}
 
       <Works />
       <Contact />
@@ -94,11 +182,12 @@ const Home = () => {
             width: 100%;
           }
           .about-wrapper {
-            position: sticky;
-            top: 0;
+            position: absolute;
+            top: 20;
             width: 100%;
             height: 100%;
             padding-top: 20px;
+            visibility: hidden;
           }
           .box {
             position: absolute;
@@ -182,6 +271,7 @@ const Home = () => {
           color: #fff;
           font-family: "Montserrat", sans-serif;
           cursor: pointer;
+          text-decoration: none;
         }
 
         .btn-blue {
@@ -191,7 +281,7 @@ const Home = () => {
         }
 
         .btn-blue:hover {
-          box-shadow: 0px 4px 25px #411e8f;
+          box-shadow: 0px 4px 50px #411e8f;
         }
         .btn-outline {
           border: 1px solid #fff;

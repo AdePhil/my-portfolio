@@ -6,15 +6,34 @@ const Intro = () => {
       <main className="intro">
         <div className="intro-text">
           <p className="intro-text1">I am,</p>
-          <h1 className="intro-text2">Adebisi Ahmed Philip</h1>
-          <h2 className="intro-text3">A front end developer</h2>
-          <button className="btn btn-blue hire-btn">Hire Me</button>
-          <button className="btn btn-outline">Download Resume</button>
+          <div class="intro-text-height">
+            <h1 className="intro-text2">Adebisi Ahmed Philip</h1>
+          </div>
+          <div>
+            <h2 className="intro-text3">A front end developer</h2>
+          </div>
+
+          <div className="button-group">
+            <button className="btn btn-blue hire-btn">Hire Me</button>
+            <a
+              href="/ahmed-cv.pdf"
+              className="btn btn-outline"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              Download Resume
+            </a>
+          </div>
         </div>
 
         <Socials />
       </main>
       <style jsx>{`
+        .intro-text-height {
+          overflow: hidden;
+          margin-top: -30px;
+          height: 90px;
+        }
         .intro {
           display: flex;
           height: 100%;
