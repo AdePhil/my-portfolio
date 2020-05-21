@@ -102,6 +102,7 @@ const Contact = () => {
                 className="input"
                 name="name"
                 onChange={handleChange}
+                value={form.name}
               />
               {errors.name && <div className="error">{errors.name}</div>}
             </div>
@@ -112,6 +113,7 @@ const Contact = () => {
                 className="input"
                 name="email"
                 onChange={handleChange}
+                value={form.email}
               />
               {errors.email && <div className="error">{errors.email}</div>}
             </div>
@@ -124,6 +126,7 @@ const Contact = () => {
                 className="input "
                 name="message"
                 onChange={handleChange}
+                value={form.message}
               />
               {errors.message && <div className="error">{errors.message}</div>}
             </div>
