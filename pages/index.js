@@ -3,7 +3,7 @@ import Intro from "../components/Intro.js";
 import Socials from "../components/Socials";
 import About from "../components/About";
 import Box from "../components/Box";
-import image from "../assets/me.png";
+import image from "../public/me.png";
 import polygon from "../assets/polygon.svg";
 import Contact from "../components/Contact";
 import dynamic from "next/dynamic";
