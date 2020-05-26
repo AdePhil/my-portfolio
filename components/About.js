@@ -99,6 +99,11 @@ const About = () => {
           grid-gap: 40px 100px;
           padding-top: 30px;
         }
+         @media (max-width: 1149px) {
+           .about-container {
+            grid-template-columns: 1fr;
+           }
+         }
         .stat {
           background-color: var(--dark-gray);
           min-height: 300px;

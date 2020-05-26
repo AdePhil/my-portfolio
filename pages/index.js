@@ -30,11 +30,10 @@ const Home = () => {
     tl.to("#box2", 0.2, { x: 0, y: "-150%", ease: Power1.easeIn }, "-=0.2");
     tl.to("#box3", 0.2, { x: 0, y: "-150%", ease: Power1.easeIn }, "-=0.2");
 
-    // tl.eventCallback("onComplete", function () {
-    //   setTimeout(() => {
-    //     setIsFixed(false);
-    //   }, 500);
-    // });
+    tl.eventCallback("onComplete", function () {
+      console.log(aboutRef);
+      aboutRef.style.position = "absolute";
+    });
 
     const controller = new ScrollMagic.Controller();
     new ScrollMagic.Scene({
@@ -128,12 +127,6 @@ const Home = () => {
       "intro-=1"
     );
 
-    tl.staggerFrom([".dot1", ".dot2", ".dot3"], 1, {
-      x: "100",
-      // yoyo: true,
-      ease: Power3.easeInOut,
-    });
-
     tl.eventCallback("onComplete", function () {
       TweenMax.to(homeRef, 0, {
         css: { height: "100%", overflow: "scroll" },
@@ -169,6 +162,9 @@ const Home = () => {
 
       <style jsx>
         {`
+          #index {
+            visibility: hidden;
+          }
           .intro-group {
             min-height: 100vh;
             overflow: hidden;
@@ -182,7 +178,7 @@ const Home = () => {
             width: 100%;
           }
           .about-wrapper {
-            position: absolute;
+            position: fixed;
             top: 20;
             width: 100%;
             height: 100%;
@@ -201,6 +197,11 @@ const Home = () => {
             right: 0;
             top: 0;
             margin-left: auto;
+          }
+          @media (max-width: 1149px) {
+            .image-container {
+              display: none;
+            }
           }
           .my-img {
             position: absolute;
