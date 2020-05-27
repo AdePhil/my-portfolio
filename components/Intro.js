@@ -46,12 +46,19 @@ const Intro = () => {
           display: flex;
           height: 100%;
         }
+
         .intro-wrapper {
           position: relative !important;
           height: 100%;
         }
         .intro-text {
           margin-top: 10rem;
+        }
+
+        @media (max-width: 459px) {
+          .intro-text {
+            margin-top: 4rem;
+          }
         }
 
         .intro-text1 {
