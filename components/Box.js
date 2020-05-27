@@ -12,6 +12,12 @@ const Box = ({ bg, ...rest }) => {
             width: 100%;
           }
 
+          @media (max-width: 750px) {
+            .box {
+              display: none;
+            }
+          }
+
           #box1 {
             bottom: 135px;
             z-index: 5;

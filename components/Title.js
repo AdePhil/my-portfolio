@@ -9,12 +9,14 @@ const Title = ({ section, title, ...rest }) => {
           display: flex;
           align-items: center;
         }
-        .title > *:not(:last-child) {
-          margin-right: 30px;
-        }
+
+        // .title > *:not(:last-child) {
+        //   margin-right: 30px;
+        // }
         .title-text {
           font-size: 3.5rem;
           font-weight: 600;
+          padding-left: 30px;
         }
         .line {
           background-color: var(--dark-gray);
@@ -22,6 +24,13 @@ const Title = ({ section, title, ...rest }) => {
           width: 50%;
           min-width: 100px;
           max-width: 400px;
+          margin-left: 30px;
+        }
+
+        @media (max-width: 620px) {
+          .line {
+            display: none;
+          }
         }
 
         .hexagon {

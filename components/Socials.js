@@ -24,6 +24,11 @@ const Socials = () => {
           position: absolute;
           bottom: 100px;
         }
+        @media (max-width: 750px) {
+          .socials {
+            bottom: -200px;
+          }
+        }
         .socials > *:not(:last-child) {
           margin-right: 40px;
         }

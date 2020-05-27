@@ -8,6 +8,7 @@ import polygon from "../assets/polygon.svg";
 import Contact from "../components/Contact";
 import dynamic from "next/dynamic";
 import Works from "../components/Works";
+import Skills from "../components/Skills";
 
 import { useEffect, useRef, useState } from "react";
 
@@ -15,40 +16,42 @@ const Home = () => {
   const boxCoverRef = useRef(null);
   const [isFixed, setIsFixed] = useState(false);
   useEffect(() => {
-    const { TimelineMax, Power1, Power2, Power3, Power4 } = require("gsap");
-    const ScrollMagic = require("scrollmagic");
-    const { ScrollMagicPluginGsap } = require("scrollmagic-plugin-gsap");
-    ScrollMagicPluginGsap(ScrollMagic, TimelineMax);
+    const windowWidth = window.innerWidth;
+    if (windowWidth > 750) {
+      const { TimelineMax, Power1, Power2, Power3, Power4 } = require("gsap");
+      const ScrollMagic = require("scrollmagic");
+      const { ScrollMagicPluginGsap } = require("scrollmagic-plugin-gsap");
+      ScrollMagicPluginGsap(ScrollMagic, TimelineMax);
 
-    const boxCover = boxCoverRef.current;
+      const boxCover = boxCoverRef.current;
 
-    const tl = new TimelineMax();
+      const tl = new TimelineMax();
 
-    // setIsFixed(true);
-    tl.to("#intro-cover", 0.5, { x: 0, y: "-150%", ease: Power1.easeIn });
-    tl.to("#box1", 0.5, { x: 0, y: "-150%", ease: Power1.easeIn }, "-=0.4");
-    tl.to("#box2", 0.2, { x: 0, y: "-150%", ease: Power1.easeIn }, "-=0.2");
-    tl.to("#box3", 0.2, { x: 0, y: "-150%", ease: Power1.easeIn }, "-=0.2");
+      // setIsFixed(true);
 
-    tl.eventCallback("onComplete", function () {
-      console.log(aboutRef);
-      aboutRef.style.position = "absolute";
-    });
+      tl.to("#intro-cover", 0.5, { x: 0, y: "-150%", ease: Power1.easeIn });
+      tl.to("#box1", 0.5, { x: 0, y: "-150%", ease: Power1.easeIn }, "-=0.4");
+      tl.to("#box2", 0.2, { x: 0, y: "-150%", ease: Power1.easeIn }, "-=0.2");
+      tl.to("#box3", 0.2, { x: 0, y: "-150%", ease: Power1.easeIn }, "-=0.2");
 
-    const controller = new ScrollMagic.Controller();
-    new ScrollMagic.Scene({
-      triggerElement: "#intro-group",
-      triggerHook: "onLeave",
-      duration: "100%",
-    })
-      .setPin("#intro-group")
-      .setTween(tl)
-      .addTo(controller);
+      tl.eventCallback("onComplete", function () {});
+
+      const controller = new ScrollMagic.Controller();
+      new ScrollMagic.Scene({
+        triggerElement: "#intro-group",
+        triggerHook: "onLeave",
+        duration: "100%",
+      })
+        .setPin("#intro-group")
+        .setTween(tl)
+        .addTo(controller);
+    }
   }, []);
 
   let homeRef = useRef(null);
   let aboutRef = useRef(null);
   useEffect(() => {
+    const windowWidth = window.innerWidth;
     const {
       TimelineMax,
       TweenMax,
@@ -132,7 +135,7 @@ const Home = () => {
         css: { height: "100%", overflow: "scroll" },
       });
       TweenMax.to(aboutRef, 0, {
-        css: { visibility: "visible" },
+        css: { visibility: "visible", position: "relative" },
       });
     });
   }, []);
@@ -156,7 +159,6 @@ const Home = () => {
           <About />
         </div>
       </section>
-
       <Works />
       <Contact />
 
@@ -177,13 +179,25 @@ const Home = () => {
             top: 0;
             width: 100%;
           }
+          @media (max-width: 750px) {
+            .intro-cover {
+              position: relative;
+              min-height: 90vh;
+              height: auto;
+            }
+          }
           .about-wrapper {
-            position: fixed;
+            position: relative;
             top: 20;
             width: 100%;
             height: 100%;
             padding-top: 20px;
             visibility: hidden;
+          }
+          @media (max-width: 750px) {
+            .about-wrapper {
+              position: relative !important;
+            }
           }
           .box {
             position: absolute;
@@ -236,6 +250,19 @@ const Home = () => {
           font-size: 62.5%;
           scroll-behavior: smooth;
         }
+
+        @media (max-width: 750px) {
+          html {
+            font-size: 60%;
+          }
+        }
+
+        @media (max-width: 650px) {
+          html {
+            font-size: 60%;
+          }
+        }
+
         * {
           box-sizing: border-box;
         }
@@ -268,7 +295,7 @@ const Home = () => {
           border: none;
           outline: none;
           padding: 16px 30px;
-          font-size: 18px;
+          font-size: 1.8rem;
           color: #fff;
           font-family: "Montserrat", sans-serif;
           cursor: pointer;

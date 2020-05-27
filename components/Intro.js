@@ -17,11 +17,19 @@ const Intro = () => {
             <button className="btn btn-blue hire-btn">Hire Me</button>
             <a
               href="/ahmed-cv.pdf"
-              className="btn btn-outline"
+              className="btn btn-outline cv"
               target="_blank"
               rel="noopener noreferrer"
             >
               Download Resume
+            </a>
+            <a
+              href="/ahmed-cv.pdf"
+              className="btn btn-outline cv-mobile"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              CV
             </a>
           </div>
         </div>
@@ -45,6 +53,7 @@ const Intro = () => {
         .intro-text {
           margin-top: 10rem;
         }
+
         .intro-text1 {
           margin-bottom: 0;
           font-size: 3.2rem;
@@ -54,13 +63,39 @@ const Intro = () => {
           font-size: 6.2rem;
           margin: 0px 0;
         }
+
         .intro-text3 {
           margin-top: 0;
           font-weight: 600;
           font-size: 4.2rem;
         }
+
+        @media (max-width: 492px) {
+          .intro-text2 {
+            font-size: 5rem;
+            line-height: 1.2;
+            margin: 30px 0;
+          }
+
+          .intro-text3 {
+            font-size: 2.5rem;
+          }
+        }
+
         .hire-btn {
           margin-right: 30px;
+        }
+        .cv-mobile {
+          display: none;
+        }
+        @media (max-width: 459px) {
+          .cv {
+            display: none;
+          }
+          .cv-mobile {
+            display: inline-block;
+            padding: 15px 35px;
+          }
         }
       `}</style>
     </div>
