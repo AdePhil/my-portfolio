@@ -186,6 +186,17 @@ const Home = () => {
               height: auto;
             }
           }
+          @media (max-width: 459px) {
+            .intro-cover {
+              background: linear-gradient(
+                  rgba(0, 0, 0, 0.75),
+                  rgba(0, 0, 0, 0.75)
+                ),
+                url("me.png");
+              width: 100%;
+              background-size: cover;
+            }
+          }
           .about-wrapper {
             position: relative;
             top: 20;

@@ -116,6 +116,7 @@ const Header = () => {
           }
 
           .mobile-container {
+            display: none;
             background: transparent;
             position: relative;
             width: 30px;
@@ -129,6 +130,9 @@ const Header = () => {
           }
 
           @media (max-width: 459px) {
+            .mobile-container {
+              display: inline-block;
+            }
             .header {
               justify-content: space-between;
               align-items: center;
