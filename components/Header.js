@@ -49,7 +49,7 @@ const Header = () => {
             margin: 0;
             margin-right: 40px;
             font-family: "Fira Code", monospace;
-            font-size: 1.8rem;
+            font-size: 2.3rem;
             margin-top: -5px;
           }
           .nav {
