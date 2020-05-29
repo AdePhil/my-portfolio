@@ -9,10 +9,12 @@ const Header = () => {
     <div className="container relative">
       <header className="header">
         <h2 className="logo">
+          <span className="blue">&lt;</span>
           <span>AHM</span>
-          <span className="dot1">.</span>
+          <span className="blue">/&gt;</span>
+          {/* <span className="dot1">.</span>
           <span className="dot2">.</span>
-          <span className="dot3">.</span>
+          <span className="dot3">.</span> */}
         </h2>
         <nav className={mobile ? "mobile nav" : "nav"}>
           <a href="#" className="nav-item">
@@ -32,6 +34,9 @@ const Header = () => {
           <div className={mobile ? "animate mobile-menu" : "mobile-menu"}></div>
         </button>
         <style jsx>{`
+          .blue {
+            // color: var(--blue);
+          }
           .dot {
             display: inline-block;
           }
@@ -43,7 +48,9 @@ const Header = () => {
           .logo {
             margin: 0;
             margin-right: 40px;
-            font-family: "Montserrat", sans-serif;
+            font-family: "Fira Code", monospace;
+            font-size: 1.8rem;
+            margin-top: -5px;
           }
           .nav {
             display: flex;

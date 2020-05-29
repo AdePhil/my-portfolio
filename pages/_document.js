@@ -16,6 +16,10 @@ export default class MyDocument extends Document {
             href="https://fonts.googleapis.com/css?family=Montserrat:600&display=swap"
             rel="stylesheet"
           ></link>
+          <link
+            href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@500&display=swap"
+            rel="stylesheet"
+          ></link>
           {/* <link
             rel="stylesheet"
             href="https://unpkg.com/swiper/css/swiper.min.css"
