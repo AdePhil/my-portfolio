@@ -189,12 +189,14 @@ const Home = () => {
           @media (max-width: 459px) {
             .intro-cover {
               background: linear-gradient(
-                  rgba(0, 0, 0, 0.85),
-                  rgba(0, 0, 0, 0.85)
+                  rgba(0, 0, 0, 0.8),
+                  rgba(0, 0, 0, 0.8)
                 ),
-                url("me.png");
+                url("me1.png");
               width: 100%;
+              background-repeat: no-repeat;
               background-size: cover;
+              background-position: -50% -50x;
             }
           }
           .about-wrapper {
