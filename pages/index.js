@@ -195,8 +195,8 @@ const Home = () => {
                 url("me1.png");
               width: 100%;
               background-repeat: no-repeat;
-              background-size: cover;
-              background-position: -60% -60px;
+              background-size: 80%;
+              background-position: 190% 0px;
             }
           }
           .about-wrapper {
