@@ -9,14 +9,15 @@ const Title = ({ section, title, ...rest }) => {
           display: flex;
           align-items: center;
         }
-
-        // .title > *:not(:last-child) {
-        //   margin-right: 30px;
-        // }
         .title-text {
           font-size: 3.5rem;
           font-weight: 600;
           padding-left: 30px;
+        }
+        @media (max-width: 750px) {
+          .title-text {
+            font-size: 2.5rem;
+          }
         }
         .line {
           background-color: var(--dark-gray);

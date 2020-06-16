@@ -96,45 +96,48 @@ const Works = () => {
   const ref = useRef(null);
 
   useEffect(() => {
-    const { TimelineMax, Power1, Power2, Power3, Power4 } = require("gsap");
-    const ScrollMagic = require("scrollmagic");
-    const { ScrollMagicPluginGsap } = require("scrollmagic-plugin-gsap");
-    ScrollMagicPluginGsap(ScrollMagic, TimelineMax);
-    const controller = new ScrollMagic.Controller();
-    const tl = new TimelineMax();
-    tl.set("#swiper-g", { x: "0%", y: "0%" });
-    tl.to("#swiper-g", 1, { x: 0, y: 0, z: -150, ease: Power1.easeIn });
-    const projectlength = projects.length;
-    projects.forEach((project, i) => {
-      if (i !== projectlength - 1) {
-        tl.to("#swiper-g", 1, {
-          x: `-${(100.0 / projectlength) * (i + 1)}%`,
-          y: 0,
-          z: -150,
-          ease: Power1.easeIn,
-        });
-        tl.to("#swiper-g", 1, {
-          x: `-${(100.0 / projectlength) * (i + 1)}%`,
-          y: 0,
-          z: 0,
-          ease: Power1.easeIn,
-        });
-        tl.to("#swiper-g", 1, {
-          x: `-${(100.0 / projectlength) * (i + 1)}%`,
-          y: 0,
-          z: -150,
-          ease: Power1.easeIn,
-        });
-      }
-    });
-    new ScrollMagic.Scene({
-      triggerElement: "#swiper-wrapper",
-      triggerHook: "onLeave",
-      duration: "400%",
-    })
-      .setPin("#swiper-wrapper")
-      .setTween(tl)
-      .addTo(controller);
+    const windowWidth = window.innerWidth;
+    if (windowWidth > 750) {
+      const { TimelineMax, Power1, Power2, Power3, Power4 } = require("gsap");
+      const ScrollMagic = require("scrollmagic");
+      const { ScrollMagicPluginGsap } = require("scrollmagic-plugin-gsap");
+      ScrollMagicPluginGsap(ScrollMagic, TimelineMax);
+      const controller = new ScrollMagic.Controller();
+      const tl = new TimelineMax();
+      tl.set("#swiper-g", { x: "0%", y: "0%" });
+      tl.to("#swiper-g", 1, { x: 0, y: 0, z: -150, ease: Power1.easeIn });
+      const projectlength = projects.length;
+      projects.forEach((project, i) => {
+        if (i !== projectlength - 1) {
+          tl.to("#swiper-g", 1, {
+            x: `-${(100.0 / projectlength) * (i + 1)}%`,
+            y: 0,
+            z: -150,
+            ease: Power1.easeIn,
+          });
+          tl.to("#swiper-g", 1, {
+            x: `-${(100.0 / projectlength) * (i + 1)}%`,
+            y: 0,
+            z: 0,
+            ease: Power1.easeIn,
+          });
+          tl.to("#swiper-g", 1, {
+            x: `-${(100.0 / projectlength) * (i + 1)}%`,
+            y: 0,
+            z: -150,
+            ease: Power1.easeIn,
+          });
+        }
+      });
+      new ScrollMagic.Scene({
+        triggerElement: "#swiper-wrapper",
+        triggerHook: "onLeave",
+        duration: "400%",
+      })
+        .setPin("#swiper-wrapper")
+        .setTween(tl)
+        .addTo(controller);
+    }
   }, []);
 
   return (
@@ -166,41 +169,23 @@ const Works = () => {
                       <h2>Date</h2>
                       <h2>Tech</h2>
                       <h2>Role</h2>
-                    </div>
-                    <div className="project-details-group">
                       <p>{projectName}</p>
                       <p>{date}</p>
                       <p>{tech}</p>
                       <p>{role}</p>
                     </div>
+                    {/* <div className="project-details-group">
+                      <p>{projectName}</p>
+                      <p>{date}</p>
+                      <p>{tech}</p>
+                      <p>{role}</p>
+                    </div> */}
                     <p>{description}</p>
                   </div>
                 </div>
               );
             }
           )}
-          {/* <div className="swiper-slid s1">
-            <div className="project">
-              <img src="/prospa.png" alt="project name" />
-              <div className="project-details-group">
-                <h2>Project Name</h2>
-                <h2>Date</h2>
-                <h2>Tech</h2>
-                <h2>Role</h2>
-              </div>
-              <div className="project-details-group">
-                <p>Prospa Dashboard UI</p>
-                <p>22/02/2019</p>
-                <p>React/Scss</p>
-                <p>Sole Developer</p>
-              </div>
-              <p>
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Illum
-                quisquam ipsam exercitationem fugiat fuga sequi quasi officia
-                doloremque placeat laudantium.
-              </p>
-            </div>
-          </div> */}
         </div>
       </div>
       <style jsx>
@@ -212,6 +197,7 @@ const Works = () => {
           .title {
             margin-top: 20px;
           }
+
           .swiper-wrapper {
             width: 100%;
             height: 100vh;
@@ -219,8 +205,9 @@ const Works = () => {
             background-color: #000;
             perspective: 1000;
           }
+
           .swiper-slid {
-            height: 700px !important;
+            height: 700px;
             height: 100%;
 
             float: left;
@@ -231,6 +218,7 @@ const Works = () => {
             background-color: #000;
             padding: 0 50px;
           }
+
           .swiper-slid .project {
             max-width: 1100px;
             width: 100%;
@@ -247,6 +235,42 @@ const Works = () => {
           }
           .swiper-group {
             height: 100%;
+          }
+
+          @media (max-width: 750px) {
+            .swiper-wrapper,
+            .swiper-group {
+              height: 100%;
+              width: 100% !important;
+            }
+            .swiper-slid {
+              height: auto;
+              float: none;
+              width: 100% !important;
+              padding: 0 30px;
+            }
+            .swiper-slid .project {
+              margin-top: 20px;
+              margin-bottom: 50px;
+            }
+
+            .project-details-group {
+              padding-top: 10px;
+              grid-template-columns: repeat(2, 1fr);
+              grid-gap: 0px 20px;
+            }
+            .project-details-group h2,
+            .project-details-group p {
+              margin-top: 0;
+            }
+            .project-details-group P:nth-of-type(1) {
+              grid-row: 2;
+              grid-column: 1;
+            }
+            .project-details-group P:nth-of-type(2) {
+              grid-row: 2;
+              grid-column: 2;
+            }
           }
         `}
       </style>

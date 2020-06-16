@@ -188,15 +188,17 @@ const Home = () => {
           }
           @media (max-width: 459px) {
             .intro-cover {
-              background: linear-gradient(
-                  rgba(0, 0, 0, 0.5) 10%,
-                  rgba(0, 0, 0, 1) 60%
-                ),
-                url("me1.png");
+              // background: linear-gradient(
+              //     rgba(0, 0, 0, 0.5) 10%,
+              //     rgba(0, 0, 0, 1) 60%
+              //   ),
+              //   url("me1.png");
               width: 100%;
               background-repeat: no-repeat;
               background-size: 80%;
               background-position: 190% 0px;
+              background-size: contain;
+              background-position: -250% -30px;
             }
           }
           .about-wrapper {
@@ -273,6 +275,15 @@ const Home = () => {
         @media (max-width: 650px) {
           html {
             font-size: 60%;
+          }
+        }
+
+        @media (max-width: 750px) {
+          p {
+            font-size: 15px;
+          }
+          h2 {
+            font-size: 2rem;
           }
         }
 

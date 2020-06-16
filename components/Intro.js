@@ -14,7 +14,10 @@ const Intro = () => {
           </div>
 
           <div className="button-group">
-            <button className="btn btn-blue hire-btn">Hire Me</button>
+            {/* <button className="btn btn-blue hire-btn">Hire Me</button> */}
+            <a href="#contact" className="btn btn-blue hire-btn">
+              Hire Me
+            </a>
             <a
               href="/ahmed-cv.pdf"
               className="btn btn-outline cv"
