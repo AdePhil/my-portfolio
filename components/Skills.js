@@ -14,8 +14,13 @@ const Skills = () => {
         {`
           .skills {
             display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(130px, 1fr));
+            grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
             grid-gap: 30px;
+          }
+          @media (max-width: 750px) {
+            .skills {
+              grid-gap: 30px 10px;
+            }
           }
           .skills-heading {
             grid-column: 1 / -1;

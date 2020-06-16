@@ -227,6 +227,7 @@ const Home = () => {
             right: 0;
             top: 0;
             margin-left: auto;
+            overflow: hidden;
           }
           @media (max-width: 1149px) {
             .image-container {

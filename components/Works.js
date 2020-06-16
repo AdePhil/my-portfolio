@@ -207,7 +207,7 @@ const Works = () => {
           }
 
           .swiper-slid {
-            height: 700px;
+            height: 700px !important;
             height: 100%;
 
             float: left;
@@ -244,7 +244,7 @@ const Works = () => {
               width: 100% !important;
             }
             .swiper-slid {
-              height: auto;
+              height: auto !important;
               float: none;
               width: 100% !important;
               padding: 0 30px;
