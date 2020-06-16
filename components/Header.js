@@ -46,7 +46,7 @@ const Header = () => {
 
         @media (max-width: 750px) {
           .h-container {
-            background-color: var(--blue);
+            background-color: #000;
             position: fixed;
             top: 0;
             width: 100%;
