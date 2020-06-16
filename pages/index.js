@@ -108,7 +108,7 @@ const Home = () => {
         "buttons-=0.1"
       )
       .from(
-        ".header",
+        ".h-container",
         0.5,
         {
           opacity: 0,
@@ -184,6 +184,7 @@ const Home = () => {
               position: relative;
               min-height: 90vh;
               height: auto;
+              margin-top: 90px;
             }
           }
           @media (max-width: 459px) {

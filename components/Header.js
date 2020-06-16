@@ -6,7 +6,7 @@ const Header = () => {
     setMobile((m) => !m);
   };
   return (
-    <div className="container relative">
+    <div className="h-container  container relative ">
       <header className="header">
         <h2 className="logo">
           <span className="blue">&lt;</span>
@@ -33,144 +33,154 @@ const Header = () => {
         <button onClick={toggleMenu} className="mobile-container">
           <div className={mobile ? "animate mobile-menu" : "mobile-menu"}></div>
         </button>
-        <style jsx>{`
-          .blue {
-            // color: var(--blue);
+      </header>
+      <style jsx>{`
+        .dot {
+          display: inline-block;
+        }
+        .header {
+          display: flex;
+          padding: 3rem 0;
+          align-items: center;
+        }
+
+        @media (max-width: 750px) {
+          .h-container {
+            background-color: var(--blue);
+            position: fixed;
+            top: 0;
+            width: 100%;
+            z-index: 20;
           }
-          .dot {
+          .header {
+            padding: 2rem 0;
+          }
+        }
+        .logo {
+          margin: 0;
+          margin-right: 40px;
+          font-family: "Fira Code", monospace;
+          font-size: 2.3rem;
+          margin-top: -5px;
+        }
+        .nav {
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          font-size: 1.8rem;
+        }
+
+        .nav-item {
+          color: #fff;
+          text-decoration: none;
+        }
+        .nav > *:not(:last-child) {
+          margin-right: 30px;
+        }
+
+        .mobile-menu,
+        .mobile-menu:after,
+        .mobile-menu:before {
+          width: 30px;
+          height: 3px;
+          border: none;
+          outline: none;
+        }
+
+        .mobile-menu:before {
+          content: "";
+          position: absolute;
+          left: 0;
+          bottom: 8px;
+          background: rgba(255, 255, 255, 1);
+          transition: bottom 300ms 300ms cubic-bezier(0.23, 1, 0.32, 1),
+            transform 300ms cubic-bezier(0.23, 1, 0.32, 1);
+        }
+
+        .mobile-menu:after {
+          content: "";
+          position: absolute;
+          left: 0;
+          top: 8px;
+          background: rgba(255, 255, 255, 1);
+          transition: top 300ms 300ms cubic-bezier(0.23, 1, 0.32, 1),
+            transform 300ms cubic-bezier(0.23, 1, 0.32, 1);
+        }
+
+        .mobile-menu {
+          transform: translateY(8px);
+          background: rgba(255, 255, 255, 1);
+          transition: all 0ms 300ms;
+          top: 0;
+          left: 0;
+          position: absolute;
+        }
+        .mobile-menu.animate {
+          background: rgba(255, 255, 255, 0);
+        }
+
+        .mobile-menu.animate:after {
+          top: 0;
+          transform: rotate(45deg);
+          transition: top 300ms cubic-bezier(0.23, 1, 0.32, 1),
+            transform 300ms 300ms cubic-bezier(0.23, 1, 0.32, 1);
+        }
+
+        .mobile-menu.animate:before {
+          bottom: 0;
+          transform: rotate(-45deg);
+          transition: bottom 300ms cubic-bezier(0.23, 1, 0.32, 1),
+            transform 300ms 300ms cubic-bezier(0.23, 1, 0.32, 1);
+        }
+
+        .mobile-container {
+          display: none;
+          background: transparent;
+          position: relative;
+          width: 30px;
+          height: 25px;
+          outline: none;
+          border: none;
+          z-index: 100;
+          position: fixed;
+          right: 30px;
+          top: 30px;
+        }
+
+        @media (max-width: 459px) {
+          .mobile-container {
             display: inline-block;
           }
           .header {
-            display: flex;
-            padding: 3rem 0;
+            justify-content: space-between;
             align-items: center;
-          }
-          .logo {
-            margin: 0;
-            margin-right: 40px;
-            font-family: "Fira Code", monospace;
-            font-size: 2.3rem;
-            margin-top: -5px;
           }
           .nav {
-            display: flex;
-            justify-content: center;
+            position: fixed;
+            right: 0;
+            width: 60vw;
+            height: 100vh;
+            bottom: 0;
+            flex-direction: column;
+            background-color: var(--blue);
+            z-index: 10;
             align-items: center;
-            font-size: 1.8rem;
-          }
-
-          .nav-item {
-            color: #fff;
-            text-decoration: none;
+            // padding-top: 200px;
+            transform: translateX(100%);
+            transition: transform 200ms ease;
           }
           .nav > *:not(:last-child) {
-            margin-right: 30px;
+            margin: 0;
+            margin-bottom: 20px;
           }
-
-          .mobile-menu,
-          .mobile-menu:after,
-          .mobile-menu:before {
-            width: 30px;
-            height: 3px;
-            border: none;
-            outline: none;
+          .nav.mobile {
+            transform: translateX(0);
           }
-
-          .mobile-menu:before {
-            content: "";
-            position: absolute;
-            left: 0;
-            bottom: 8px;
-            background: rgba(255, 255, 255, 1);
-            transition: bottom 300ms 300ms cubic-bezier(0.23, 1, 0.32, 1),
-              transform 300ms cubic-bezier(0.23, 1, 0.32, 1);
+          .nav-item {
+            margin-right: 0;
           }
-
-          .mobile-menu:after {
-            content: "";
-            position: absolute;
-            left: 0;
-            top: 8px;
-            background: rgba(255, 255, 255, 1);
-            transition: top 300ms 300ms cubic-bezier(0.23, 1, 0.32, 1),
-              transform 300ms cubic-bezier(0.23, 1, 0.32, 1);
-          }
-
-          .mobile-menu {
-            transform: translateY(8px);
-            background: rgba(255, 255, 255, 1);
-            transition: all 0ms 300ms;
-            top: 0;
-            left: 0;
-            position: absolute;
-          }
-          .mobile-menu.animate {
-            background: rgba(255, 255, 255, 0);
-          }
-
-          .mobile-menu.animate:after {
-            top: 0;
-            transform: rotate(45deg);
-            transition: top 300ms cubic-bezier(0.23, 1, 0.32, 1),
-              transform 300ms 300ms cubic-bezier(0.23, 1, 0.32, 1);
-          }
-
-          .mobile-menu.animate:before {
-            bottom: 0;
-            transform: rotate(-45deg);
-            transition: bottom 300ms cubic-bezier(0.23, 1, 0.32, 1),
-              transform 300ms 300ms cubic-bezier(0.23, 1, 0.32, 1);
-          }
-
-          .mobile-container {
-            display: none;
-            background: transparent;
-            position: relative;
-            width: 30px;
-            height: 25px;
-            outline: none;
-            border: none;
-            z-index: 100;
-            position: fixed;
-            right: 30px;
-            top: 30px;
-          }
-
-          @media (max-width: 459px) {
-            .mobile-container {
-              display: inline-block;
-            }
-            .header {
-              justify-content: space-between;
-              align-items: center;
-            }
-            .nav {
-              position: fixed;
-              right: 0;
-              width: 60vw;
-              height: 100vh;
-              bottom: 0;
-              flex-direction: column;
-              background-color: var(--blue);
-              z-index: 10;
-              align-items: center;
-              // padding-top: 200px;
-              transform: translateX(100%);
-              transition: transform 200ms ease;
-            }
-            .nav > *:not(:last-child) {
-              margin: 0;
-              margin-bottom: 20px;
-            }
-            .nav.mobile {
-              transform: translateX(0);
-            }
-            .nav-item {
-              margin-right: 0;
-            }
-          }
-        `}</style>
-      </header>
+        }
+      `}</style>
     </div>
   );
 };
