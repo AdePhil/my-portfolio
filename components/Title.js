@@ -67,6 +67,24 @@ const Title = ({ section, title, ...rest }) => {
           border-right: 50px solid transparent;
           border-top: 25px solid var(--dark-gray);
         }
+        @media (max-width: 600px) {
+          .hexagon {
+            width: 50px;
+            height: 30px;
+          }
+          .hexagon:before {
+            top: -12.5px;
+            border-left: 25px solid transparent;
+            border-right: 25px solid transparent;
+            border-bottom: 12.5px solid var(--dark-gray);
+          }
+          .hexagon:after {
+            bottom: -12.5px;
+            border-left: 25px solid transparent;
+            border-right: 25px solid transparent;
+            border-top: 12.5px solid var(--dark-gray);
+          }
+        }
       `}</style>
     </div>
   );

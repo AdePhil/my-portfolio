@@ -1,16 +1,50 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 
 const Header = () => {
   const [mobile, setMobile] = useState(false);
+  const [hideText, setHideText] = useState(false);
   const toggleMenu = () => {
     setMobile((m) => !m);
   };
+
+  useEffect(() => {
+    const scrollAnimation = () => {
+      const windowWidth = window.innerWidth;
+      let scrollHeight = window.pageYOffset;
+      if (windowWidth > 750) return;
+      if (scrollHeight > 80) {
+        setHideText(true);
+      } else {
+        setHideText(false);
+      }
+    };
+    window.addEventListener("scroll", scrollAnimation);
+    return () => {
+      window.removeEventListener("scroll", scrollAnimation);
+    };
+  }, []);
   return (
     <div className="h-container  container relative ">
       <header className="header">
         <h2 className="logo">
           <span className="blue">&lt;</span>
-          <span>AHM</span>
+          <span>A</span>
+          <span
+            className={`${
+              hideText ? "hide letter-to-disappear" : "letter-to-disappear"
+            }`}
+          >
+            H
+          </span>
+          <span>M</span>
+          <span
+            className={`${
+              hideText ? "hide letter-to-disappear" : "letter-to-disappear"
+            }`}
+          >
+            E
+          </span>
+          <span>D</span>
           <span className="blue">/&gt;</span>
           {/* <span className="dot1">.</span>
           <span className="dot2">.</span>
@@ -42,6 +76,17 @@ const Header = () => {
           display: flex;
           padding: 3rem 0;
           align-items: center;
+        }
+        .letter-to-disappear {
+          display: inline-block;
+          opacity: 1;
+          transition: opacity 250ms ease-out 0s, margin 250ms ease-in-out 0s;
+        }
+
+        .letter-to-disappear.hide {
+          opacity: 0;
+          margin-right: -0.5em;
+          transition: opacity 250ms ease-out 0s, margin 250ms ease-in-out 0s;
         }
 
         @media (max-width: 750px) {
@@ -142,9 +187,9 @@ const Header = () => {
           outline: none;
           border: none;
           z-index: 100;
-          position: fixed;
-          right: 30px;
-          top: 30px;
+          // position: fixed;
+          // right: 30px;
+          // top: 30px;
         }
 
         @media (max-width: 459px) {
