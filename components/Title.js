@@ -12,7 +12,7 @@ const Title = ({ section, title, ...rest }) => {
         .title-text {
           font-size: 3.5rem;
           font-weight: 600;
-          padding-left: 30px;
+          margin-left: 30px;
         }
         @media (max-width: 750px) {
           .title-text {

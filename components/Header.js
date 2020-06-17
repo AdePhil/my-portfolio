@@ -106,7 +106,7 @@ const Header = () => {
           margin-right: 40px;
           font-family: "Fira Code", monospace;
           font-size: 2.3rem;
-          margin-top: -5px;
+          // margin-top: -5px;
         }
         .nav {
           display: flex;
@@ -207,7 +207,8 @@ const Header = () => {
             height: 100vh;
             bottom: 0;
             flex-direction: column;
-            background-color: var(--blue);
+            // background-color: var(--blue);
+            background-color: var(--purple);
             z-index: 10;
             align-items: center;
             // padding-top: 200px;

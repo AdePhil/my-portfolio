@@ -152,9 +152,14 @@ const Home = () => {
         <div className="intro-cover" id="intro-cover">
           <Intro />
         </div>
-        <Box bg="#221149" id="box1" className="box" />
+        {/* <Box bg="#221149" id="box1" className="box" />
         <Box bg="#1C0E3C" id="box2" className="box" />
-        <Box bg="#190D35" id="box3" className="box" />
+        <Box bg="#190D35" id="box3" className="box" /> */}
+
+        <Box bg="#492f84" id="box2" className="box" />
+        <Box bg="#34215e" id="box1" className="box" />
+        <Box bg="#34215e" id="box3" className="box" />
+
         <div className="about-wrapper" ref={(el) => (aboutRef = el)}>
           <About />
         </div>
@@ -256,9 +261,16 @@ const Home = () => {
         `}
       </style>
       <style jsx global>{`
+        // :root {
+        //   --black: #000;
+        //   --blue: #241663;
+        //   --dark-gray: rgba(53, 47, 68, 0.6);
+        //   --purple: #7350c1;
+        //   --off-white: #fafafa;
+        // }
         :root {
-          --black: #000;
-          --blue: #241663;
+          --black: #160f29;
+          --blue: #7350c1;
           --dark-gray: rgba(53, 47, 68, 0.6);
           --purple: #7350c1;
           --off-white: #fafafa;
@@ -330,12 +342,12 @@ const Home = () => {
 
         .btn-blue {
           background-color: var(--blue);
-          box-shadow: 0px 4px 10px #411e8f;
+          box-shadow: 0px 4px 10px var(--blue);
           transition: box-shadow 200ms ease;
         }
 
         .btn-blue:hover {
-          box-shadow: 0px 4px 50px #411e8f;
+          box-shadow: 0px 4px 50px var(--blue);
         }
         .btn-outline {
           border: 1px solid #fff;
