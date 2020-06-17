@@ -202,7 +202,7 @@ const Works = () => {
             width: 100%;
             height: 100vh;
             overflow: hidden;
-            background-color: #000;
+            background-color: var(--black);
             perspective: 1000;
           }
 
@@ -215,7 +215,7 @@ const Works = () => {
             display: flex;
             align-items: center;
             justify-content: center;
-            background-color: #000;
+            background-color: var(--black);
             padding: 0 50px;
           }
 

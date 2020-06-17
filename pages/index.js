@@ -172,7 +172,7 @@ const Home = () => {
             overflow: hidden;
           }
           .intro-cover {
-            background-color: #000;
+            background-color: var(--black);
             position: absolute;
             z-index: 6;
             height: calc(100vh - 200px);
@@ -257,7 +257,7 @@ const Home = () => {
       </style>
       <style jsx global>{`
         :root {
-          --black: #030404;
+          --black: #000;
           --blue: #241663;
           --dark-gray: rgba(53, 47, 68, 0.6);
           --purple: #7350c1;
