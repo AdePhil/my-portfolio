@@ -180,7 +180,7 @@ const Works = () => {
                       <p>{tech}</p>
                       <p>{role}</p>
                     </div> */}
-                    <p>{description}</p>
+                    {/* <p>{description}</p> */}
                   </div>
                 </div>
               );

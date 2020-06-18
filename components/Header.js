@@ -24,7 +24,13 @@ const Header = () => {
     };
   }, []);
   return (
-    <div className="h-container  container relative ">
+    <div
+      className={`${
+        hideText
+          ? "h-container  container relative show-shadow"
+          : "h-container  container relative"
+      }`}
+    >
       <header className="header">
         <h2 className="logo">
           <span className="blue">&lt;</span>
@@ -97,6 +103,10 @@ const Header = () => {
             width: 100%;
             z-index: 20;
           }
+          .h-container.show-shadow {
+            box-shadow: 2px 0 50px var(--black);
+          }
+
           .header {
             padding: 2rem 0;
           }
