@@ -6,16 +6,16 @@ import github from "../assets/github.svg";
 const Socials = () => {
   return (
     <section className="socials">
-      <a href="#" className="social-link">
+      <a href="https://www.instagram.com/ade_phil/" className="social-link">
         <img src={instagram} alt="instagram" />
       </a>
-      <a href="#" className="social-link">
+      <a href="https://github.com/AdePhil" className="social-link">
         <img src={github} alt="github" />
       </a>
-      <a href="#" className="social-link">
+      <a href="https://twitter.com/Ade_phil" className="social-link">
         <img src={twitter} alt="Twitter" />
       </a>
-      <a href="#" className="social-link">
+      <a href="https://bitbucket.org/Adephil/" className="social-link">
         <img src={bitbucket} alt="bitbucket" />
       </a>
       <style jsx>{`
