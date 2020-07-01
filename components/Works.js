@@ -252,7 +252,7 @@ const Works = () => {
             .swiper-slid .project {
               margin-top: 20px;
               margin-bottom: 50px;
-              min-height: auto;
+              min-height: auto !important;
             }
 
             .project-details-group {
