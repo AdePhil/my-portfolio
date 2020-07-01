@@ -187,7 +187,7 @@ const Home = () => {
           @media (max-width: 750px) {
             .intro-cover {
               position: relative;
-              min-height: 90vh;
+              min-height: calc(90vh - 90px);
               height: auto;
               margin-top: 90px;
             }

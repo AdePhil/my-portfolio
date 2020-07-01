@@ -55,6 +55,11 @@ const About = () => {
           min-height: 500px;
           
         }
+         @media (max-width: 750px) {
+           .about {
+             padding-top: 0;
+           }
+         }
         .about-text {
           font-size: 1.8rem;
           line-height: 2;
