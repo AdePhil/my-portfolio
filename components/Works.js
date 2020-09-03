@@ -28,7 +28,7 @@ const projects = [
     id: 2,
     projectName: "Prospa Dashboard UI",
     date: "22/02/2020",
-    tech: "React/Scss",
+    tech: "React/Scss/Material UI",
     role: "Sole Developer",
     img: "/prospa.jpg",
     link: "https://prospa.netlify.app/",
