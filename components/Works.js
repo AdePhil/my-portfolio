@@ -96,7 +96,7 @@ const projects = [
     date: "21/06/2020",
     tech: "Vue/Boostrap/Scss",
     role: "Frontend Developer",
-    img: "/agency.jpg",
+    img: "/payday.jpg",
     link: "https://creativeagency.netlify.com/",
     description:
       "Lorem ipsum dolor sit amet consectetur adipisicing elit. Illum quisquam ipsam exercitationem fugiat fuga sequi quasi officiadoloremque placeat laudantium.",
