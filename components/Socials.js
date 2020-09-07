@@ -2,13 +2,11 @@ import instagram from "../assets/instagram.svg";
 import twitter from "../assets/twitter.svg";
 import bitbucket from "../assets/bitbucket.svg";
 import github from "../assets/github.svg";
+import medium from "../assets/medium.svg";
 
 const Socials = () => {
   return (
     <section className="socials">
-      <a href="https://www.instagram.com/ade_phil/" className="social-link">
-        <img src={instagram} alt="instagram" />
-      </a>
       <a href="https://github.com/AdePhil" className="social-link">
         <img src={github} alt="github" />
       </a>
@@ -17,6 +15,12 @@ const Socials = () => {
       </a>
       <a href="https://bitbucket.org/Adephil/" className="social-link">
         <img src={bitbucket} alt="bitbucket" />
+      </a>
+      <a href="https://medium.com/@Ade_phil" className="social-link">
+        <img src={medium} alt="medium" />
+      </a>
+      <a href="https://www.instagram.com/ade_phil/" className="social-link">
+        <img src={instagram} alt="instagram" />
       </a>
       <style jsx>{`
         .socials {
@@ -39,6 +43,9 @@ const Socials = () => {
         }
         .social-link {
           transition: 200ms ease;
+        }
+        .social-link img {
+          width: 30px;
         }
         .social-link:hover {
           transform: translateY(-5px);
