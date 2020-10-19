@@ -15,10 +15,8 @@ const About = () => {
               and usable websites, web Apps and mobile apps.
             </p>
             <p>
-              I currently work at SB Telecoms and Devices as a frontend
-              developer and I work on the TAMS products. In my spare time I
-              write articles on medium, watch sci-fi movies and argue about
-              football with friends.
+              In my spare time I write articles on medium, watch sci-fi movies
+              and argue about football with friends.
             </p>
             {/* <p>
               I currently work at SB Telecoms and Devices as a frontend

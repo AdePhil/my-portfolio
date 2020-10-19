@@ -141,6 +141,7 @@ const Home = () => {
   }, []);
   return (
     <div id="index" ref={(el) => (homeRef = el)}>
+      <div className="line-bg"></div>
       <div className="image-container">
         <img src={image} alt="Me" className="my-img" />
         {/* <img src={polygon} alt="polygon" className="polygon top" />
@@ -183,6 +184,18 @@ const Home = () => {
             height: calc(100vh - 200px);
             top: 0;
             width: 100%;
+          }
+          .line-bg {
+            position: fixed;
+            top: 0px;
+            left: 0px;
+            bottom: 0px;
+            right: 0px;
+            z-index: 20;
+            height: 500%;
+            background: url(line-bg.svg) no-repeat;
+            background-size: 200%;
+            background-position: -700px -300px;
           }
           @media (max-width: 750px) {
             .intro-cover {
@@ -241,7 +254,7 @@ const Home = () => {
           }
           .my-img {
             position: absolute;
-            z-index: 10;
+            z-index: 30;
             height: 100%;
             object-fit: cover;
             right: 0;

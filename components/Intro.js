@@ -53,6 +53,8 @@ const Intro = () => {
         .intro-wrapper {
           position: relative !important;
           height: 100%;
+          position: relative;
+          z-index: 21;
         }
         .intro-text {
           margin-top: 10rem;

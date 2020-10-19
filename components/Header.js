@@ -82,6 +82,8 @@ const Header = () => {
           display: flex;
           padding: 3rem 0;
           align-items: center;
+          position: relative;
+          z-index: 21;
         }
         .letter-to-disappear {
           display: inline-block;
