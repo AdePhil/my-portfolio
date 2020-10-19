@@ -18,12 +18,6 @@ const About = () => {
               In my spare time I write articles on medium, watch sci-fi movies
               and argue about football with friends.
             </p>
-            {/* <p>
-              I currently work at SB Telecoms and Devices as a frontend
-              developer and I work on xzy products. In my spare time I write
-              articles on medium, watch sci-fi movies and argue about football
-              with friends.
-            </p> */}
           </div>
           <div className="stat">
             <div className="stat-item">
