@@ -103,6 +103,7 @@ const Contact = () => {
                 name="name"
                 onChange={handleChange}
                 value={form.name}
+                title="Type Your Name"
               />
               {errors.name && <div className="error">{errors.name}</div>}
             </div>
@@ -114,6 +115,7 @@ const Contact = () => {
                 name="email"
                 onChange={handleChange}
                 value={form.email}
+                title="Type Your Email"
               />
               {errors.email && <div className="error">{errors.email}</div>}
             </div>
@@ -127,12 +129,17 @@ const Contact = () => {
                 name="message"
                 onChange={handleChange}
                 value={form.message}
+                title="Type Your Message"
               />
               {errors.message && <div className="error">{errors.message}</div>}
             </div>
           </div>
           <div className="center">
-            <button className="btn btn-blue btn-submit" onSubmit={handleSubmit}>
+            <button
+              className="btn btn-blue btn-submit"
+              onSubmit={handleSubmit}
+              value="Let's Chat"
+            >
               {loading && (
                 <img src={Spinner} alt="spinner" className="spinner" />
               )}

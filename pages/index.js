@@ -9,6 +9,7 @@ import Contact from "../components/Contact";
 import dynamic from "next/dynamic";
 import Works from "../components/Works";
 import Skills from "../components/Skills";
+import Head from "next/head";
 
 import { useEffect, useRef, useState } from "react";
 
@@ -117,6 +118,7 @@ const Home = () => {
         "buttons-=0.1"
       );
 
+    // Box animation
     tl.staggerFrom(
       ["#box1", "#box2", "#box3"],
       1,
@@ -142,6 +144,9 @@ const Home = () => {
   return (
     <div id="index" ref={(el) => (homeRef = el)}>
       {/* <div className="line-bg"></div> */}
+      <Head>
+        <title>Adebisi Ahmed's website</title>
+      </Head>
       <div className="image-container">
         <img src={image} alt="Me" className="my-img" />
         {/* <img src={polygon} alt="polygon" className="polygon top" />

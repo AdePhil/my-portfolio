@@ -1,107 +1,6 @@
 import { useEffect, useRef, useState } from "react";
 import Title from "../components/Title";
-
-const projects = [
-  {
-    id: 1,
-    projectName: "Productly",
-    date: "22/02/2020",
-    tech: "React/Scss",
-    role: "Sole Developer",
-    img: "/productly.jpg",
-    link: "https://productly.netlify.app/",
-    description:
-      "Lorem ipsum dolor sit amet consectetur adipisicing elit. Illum quisquam ipsam exercitationem fugiat fuga sequi quasi officiadoloremque placeat laudantium.",
-  },
-  {
-    id: 8,
-    projectName: "TAMS",
-    date: "22/02/2020",
-    tech: "Vue/Vuex/Scss/Element UI",
-    role: "Frontend Lead Developer",
-    img: "/tams.jpg",
-    link: "https://app.tams.com.ng/",
-    description:
-      "Lorem ipsum dolor sit amet consectetur adipisicing elit. Illum quisquam ipsam exercitationem fugiat fuga sequi quasi officiadoloremque placeat laudantium.",
-  },
-  {
-    id: 2,
-    projectName: "Prospa Dashboard UI",
-    date: "22/02/2020",
-    tech: "React/Scss/Material UI",
-    role: "Sole Developer",
-    img: "/prospa.jpg",
-    link: "https://prospa.netlify.app/",
-    description:
-      "Lorem ipsum dolor sit amet consectetur adipisicing elit. Illum quisquam ipsam exercitationem fugiat fuga sequi quasi officiadoloremque placeat laudantium.",
-  },
-  {
-    id: 3,
-    projectName: "Neya",
-    date: "22/02/2020",
-    tech: "Nuxt/Scss/Tailwind",
-    role: "Sole Developer",
-    img: "/neya.jpg",
-    link: "https://neya.tams.com.ng/",
-    description:
-      "Lorem ipsum dolor sit amet consectetur adipisicing elit. Illum quisquam ipsam exercitationem fugiat fuga sequi quasi officiadoloremque placeat laudantium.",
-  },
-  {
-    id: 4,
-    projectName: "Securetech STE",
-    date: "22/02/2020",
-    tech: "Nuxt/Scss",
-    role: "Sole Developer",
-    img: "/securetech.jpg",
-    link: "https://www.securetech.com.ng/ste/",
-    description:
-      "Lorem ipsum dolor sit amet consectetur adipisicing elit. Illum quisquam ipsam exercitationem fugiat fuga sequi quasi officiadoloremque placeat laudantium.",
-  },
-  {
-    id: 5,
-    projectName: "Gify",
-    date: "22/02/2020",
-    tech: "React/Scss",
-    role: "Sole Developer",
-    img: "/gify.jpg",
-    link: "https://gify.netlify.app/",
-    description:
-      "Lorem ipsum dolor sit amet consectetur adipisicing elit. Illum quisquam ipsam exercitationem fugiat fuga sequi quasi officiadoloremque placeat laudantium.",
-  },
-  {
-    id: 6,
-    projectName: "Transmonitor Dashboard UI",
-    date: "22/02/2020",
-    tech: "React/Scss",
-    role: "Sole Developer",
-    img: "/transmonitor.jpg",
-    link: "https://transmonitorx.netlify.app/",
-    description:
-      "Lorem ipsum dolor sit amet consectetur adipisicing elit. Illum quisquam ipsam exercitationem fugiat fuga sequi quasi officiadoloremque placeat laudantium.",
-  },
-  {
-    id: 7,
-    projectName: "Agency",
-    date: "22/02/2020",
-    tech: "React/Scss",
-    role: "Sole Developer",
-    img: "/agency.jpg",
-    link: "https://creativeagency.netlify.com/",
-    description:
-      "Lorem ipsum dolor sit amet consectetur adipisicing elit. Illum quisquam ipsam exercitationem fugiat fuga sequi quasi officiadoloremque placeat laudantium.",
-  },
-  {
-    id: 8,
-    projectName: "Seamless Payday",
-    date: "21/06/2020",
-    tech: "Vue/Boostrap/Scss",
-    role: "Frontend Developer",
-    img: "/payday.jpg",
-    link: "https://www.seamlesspayday.com/get-started",
-    description:
-      "Lorem ipsum dolor sit amet consectetur adipisicing elit. Illum quisquam ipsam exercitationem fugiat fuga sequi quasi officiadoloremque placeat laudantium.",
-  },
-];
+import { projects } from "./data";
 
 const Works = () => {
   const ref = useRef(null);
@@ -109,7 +8,7 @@ const Works = () => {
   useEffect(() => {
     const windowWidth = window.innerWidth;
     if (windowWidth > 750) {
-      const { TimelineMax, Power1, Power2, Power3, Power4 } = require("gsap");
+      const { TimelineMax, Power1 } = require("gsap");
       const ScrollMagic = require("scrollmagic");
       const { ScrollMagicPluginGsap } = require("scrollmagic-plugin-gsap");
       ScrollMagicPluginGsap(ScrollMagic, TimelineMax);
@@ -120,19 +19,19 @@ const Works = () => {
       const projectlength = projects.length;
       projects.forEach((project, i) => {
         if (i !== projectlength - 1) {
-          tl.to("#swiper-g", 1, {
+          tl.to("#swiper-g", 1.5, {
             x: `-${(100.0 / projectlength) * (i + 1)}%`,
             y: 0,
             z: -150,
             ease: Power1.easeIn,
           });
-          tl.to("#swiper-g", 1, {
+          tl.to("#swiper-g", 1.5, {
             x: `-${(100.0 / projectlength) * (i + 1)}%`,
             y: 0,
             z: 0,
             ease: Power1.easeIn,
           });
-          tl.to("#swiper-g", 1, {
+          tl.to("#swiper-g", 1.5, {
             x: `-${(100.0 / projectlength) * (i + 1)}%`,
             y: 0,
             z: -150,

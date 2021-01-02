@@ -95,7 +95,7 @@ const About = () => {
           display: block;
           font-size: 1.2rem;
           text-align: center;
-          color: var(--purple);
+          color: var(--white);
           t
         }
       `}</style>

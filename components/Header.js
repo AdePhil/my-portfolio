@@ -70,7 +70,11 @@ const Header = () => {
             Contact
           </a>
         </nav>
-        <button onClick={toggleMenu} className="mobile-container">
+        <button
+          onClick={toggleMenu}
+          className="mobile-container"
+          aria-label="hamburger menu"
+        >
           <div className={mobile ? "animate mobile-menu" : "mobile-menu"}></div>
         </button>
       </header>
