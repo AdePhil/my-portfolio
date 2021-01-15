@@ -91,7 +91,7 @@ const Contact = () => {
         </p>
         <form
           method="POST"
-          name="contact"
+          name="contact-form"
           onSubmit={handleSubmit}
           data-netlify="true"
           netlify-honeypot="bot-field"
@@ -101,7 +101,7 @@ const Contact = () => {
               Don’t fill this out if you’re human: <input name="bot-field" />
             </label>
           </div>
-          <input type="hidden" name="form-name" value="contact" />
+          <input type="hidden" name="form-name" value="contact-form" />
           <div className="input-group">
             <div>
               <input
