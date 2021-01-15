@@ -41,7 +41,7 @@ const Contact = () => {
 
     const formDom = e.target;
     setLoading(true);
-    fetch(formDom.action, {
+    fetch("/", {
       method: formDom.method,
       headers: {
         "Content-Type": "application/x-www-form-urlencoded",
@@ -90,10 +90,18 @@ const Contact = () => {
           opportunities, so if you’d like to chat please get in touch.
         </p>
         <form
-          action="https://formspree.io/xoqkjydo"
           method="POST"
+          name="contact"
           onSubmit={handleSubmit}
+          data-netlify="true"
+          netlify-honeypot="bot-field"
         >
+          <div className="hidden-form-element">
+            <label>
+              Don’t fill this out if you’re human: <input name="bot-field" />
+            </label>
+          </div>
+          <input type="hidden" name="form-name" value="contact" />
           <div className="input-group">
             <div>
               <input
@@ -152,6 +160,9 @@ const Contact = () => {
         </form>
       </section>
       <style jsx>{`
+        .hidden-form-element {
+          display: none;
+        }
         .error {
           font-size: 12px;
           color: orange;
