@@ -53,7 +53,7 @@ const About = () => {
          }
          @media (max-width: 459px) {
             .about {
-              padding-top: 50px;
+              padding-top: 100px;
             }
           }
         .about-text {
