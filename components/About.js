@@ -45,13 +45,17 @@ const About = () => {
         .about {
           padding: 40px 0 0;
           min-height: 500px;
-          
         }
          @media (max-width: 750px) {
            .about {
              padding-top: 0;
            }
          }
+         @media (max-width: 459px) {
+            .about {
+              padding-top: 50px;
+            }
+          }
         .about-text {
           font-size: 1.8rem;
           line-height: 2;
