@@ -35,7 +35,7 @@ const Socials = () => {
         }
         @media (max-width: 459px) {
           .socials {
-            bottom: -100px;
+            bottom: -170px;
           }
         }
         .socials > *:not(:last-child) {

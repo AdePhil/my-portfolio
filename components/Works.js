@@ -104,6 +104,11 @@ const Works = () => {
             margin-top: 100px;
             padding: 0px 0 30px;
           }
+          @media (max-width: 459px) {
+            .works {
+              padding-top: 60px;
+            }
+          }
           .title {
             margin-top: 20px;
           }
